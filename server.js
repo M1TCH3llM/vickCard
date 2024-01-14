@@ -1,9 +1,10 @@
-
-const express = require("express");
-const mongoose = require("mongoose");
-const { ApolloServer } = require("apollo-server-express");
-const bodyParser = require("body-parser");
-const { typeDefs, resolvers } = require("./schemas");
+// server.js
+const express = require('express');
+const bodyParser = require('body-parser');
+const mongoose = require('mongoose'); 
+const { ApolloServer } = require('apollo-server-express');
+const connectDB = require('./Config/connections'); 
+const { typeDefs, resolvers } = require('./schemas');
 
 const app = express();
 const port = 3000;
@@ -11,15 +12,7 @@ const port = 3000;
 app.use(bodyParser.json());
 
 // Connect to MongoDB
-mongoose.connect("mongodb://localhost:27017/vickClient_db", {
-  useNewUrlParser: true,
-  useUnifiedTopology: true,
-});
-const db = mongoose.connection;
-db.on("error", console.error.bind(console, "MongoDB connection error:"));
-db.once("open", () => {
-  console.log("Connected to MongoDB");
-});
+connectDB();
 
 // Define Schema for Client and Card data
 const clientSchema = new mongoose.Schema({
@@ -27,7 +20,7 @@ const clientSchema = new mongoose.Schema({
 });
 
 const cardSortSchema = new mongoose.Schema({
-  client: { type: mongoose.Schema.Types.ObjectId, ref: "Client" },
+  client: { type: mongoose.Schema.Types.ObjectId, ref: 'Client' },
   category: String,
   sideA: String,
   sideB: String,
@@ -40,22 +33,21 @@ const server = new ApolloServer({
 });
 
 async function startServer() {
-  // Start the Apollo Server
   await server.start();
-  
-  // Apply Apollo Server middleware to Express
-  server.applyMiddleware({ app });
-  
-  app.listen(port, () => {
-    console.log(`Server is running on http://localhost:${port}`);
-    console.log(
-      `Apollo Server is now available at http://localhost:${port}${server.graphqlPath}`
-      );
-    });
-  }
+
+  // Apply Apo
+
+// Apply Apollo Server middleware to Express
+server.applyMiddleware({ app });
+
+app.listen(port, () => {
+  console.log(`Server is running on http://localhost:${port}`);
+  console.log(`Apollo Server is now available at http://localhost:${port}${server.graphqlPath}`);
+});
+}
   
   startServer();
-  
+
   
   // const express = require("express");
   // const mongoose = require("mongoose");
