@@ -4,7 +4,8 @@
     margin-top: 2rem;
 }
 
-#boardCol div {
+#colName,
+#cards {
     border: 2px solid azure;
     height: 150px;
     width: 225px;

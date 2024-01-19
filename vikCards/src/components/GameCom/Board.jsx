@@ -1,14 +1,15 @@
 import React from "react";
 import "./board.css";
+import Card from "./cards";
 
 function Board() {
   return (
     <div id="boardCol">
-      <div>Card Place Holder</div>
-      <div>You are</div>
-      <div>You are not</div>
-      <div>You are torn</div>
-      <div>You are does not apply</div>
+      <Card />
+      <div id='colName'>You are</div>
+      <div id='colName'>You are not</div>
+      <div id='colName'>You are torn</div>
+      <div id='colName'>You are does not apply</div>
     </div>
   );
 }
