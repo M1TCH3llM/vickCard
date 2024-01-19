@@ -1,21 +1,26 @@
 #mainLog {
   display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+  width: 100vw;
 }
 
 #loginBox {
-    display: flex;
-    flex-direction: column;
+  display: flex;
+  flex-direction: column;
+  height: fit-content;
 }
 
 input {
-    margin: 1rem;
+  margin: 1rem;
 }
 
 #loginBox {
-    border: 2px solid azure;
-    padding: 2rem;
-    width: 15rem;
-    border-radius: 20px;
-    background-color: rgb(90, 90, 90);
-    box-shadow: inset 2px 2px 5px black, 2px 2px 5px black;
+  border: 2px solid azure;
+  padding: 2rem;
+  width: 15rem;
+  border-radius: 20px;
+  background-color: rgb(90, 90, 90);
+  box-shadow: inset 2px 2px 5px black, 2px 2px 5px black;
 }

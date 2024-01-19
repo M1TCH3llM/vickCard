@@ -1,0 +1,15 @@
+#navUser {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+#things {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+}
+
+#things div {
+    margin: 0rem 1rem;
+}

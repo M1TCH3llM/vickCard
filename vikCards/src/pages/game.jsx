@@ -1,8 +1,11 @@
 import React from 'react'
+import Nav from '../components/GameCom/nav'
 
 function game() {
   return (
-    <div>game</div>
+    <div>
+      <Nav />
+    </div>
   )
 }
 
